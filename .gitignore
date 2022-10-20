@@ -1,0 +1,7 @@
+.DS_STORE/
+.vscode/
+node_modules/
+package-lock.json
+.env
+00-practice-app/
+.eslintcache
