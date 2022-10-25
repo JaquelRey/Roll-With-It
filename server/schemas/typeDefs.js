@@ -6,6 +6,13 @@ const typeDefs = gql`
     _id: ID
     items: [InventoryItem]
   }
+
+  type InventoryItem {
+    _id: ID
+    group: String
+    kind: String
+    iteminfo: [ItemInfo]
+  }
   
   type Traits {
     _id: ID
