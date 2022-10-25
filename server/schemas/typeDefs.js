@@ -2,6 +2,11 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
 
+  type Inventory {
+    _id: ID
+    items: [InventoryItem]
+  }
+  
   type Traits {
     _id: ID
     name: String
