@@ -24,6 +24,11 @@ const typeDefs = gql`
     weight: Number
     stats: ItemStats
   }
+
+  type ItemStats {
+    _id: ID
+    
+  }
   
   type Traits {
     _id: ID
