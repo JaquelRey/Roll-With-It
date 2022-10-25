@@ -1,4 +1,7 @@
 const { Schema, model } = require('mongoose');
+const languageSchema = require('./Language');
+const proficiencySchema = require('./Proficency');
+const featSchema = require('./Feat');
 
 const traitSchema = new Schema(
     {
@@ -23,18 +26,9 @@ const traitSchema = new Schema(
             type: String,
             required: true,
         },
-        languages: {
-            type: [String],
-            required: true,
-        },
-        proficiences: {
-            type: [String],
-            required: true,
-        },
-        feats: {
-            type: [String],
-            required: true,
-        },
+        languages: [languageSchema],
+        proficiences: [proficiencySchema],
+        feats: [featSchema],
     }
   );
 
