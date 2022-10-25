@@ -2,13 +2,24 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
 
+  type Traits {
+    _id: ID
+    name: String
+    description: String
+    race: String
+    class: String
+    background: String
+    languages: [Language]
+    proficiences: [Proficiency]]
+    feats: [Feat]
+  }
   
 
   type Character {
     _id: ID
-    traits: [Traits]
-    stats: [Stats]
-    inventory: [Inventory]
+    traits: Traits
+    stats: Stats
+    inventory: Inventory
   }
 
   type User {
