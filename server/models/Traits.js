@@ -24,15 +24,15 @@ const traitSchema = new Schema(
             required: true,
         },
         languages: {
-            type: String,
+            type: [String],
             required: true,
         },
         proficiences: {
-            type: String,
+            type: [String],
             required: true,
         },
         feats: {
-            type: String,
+            type: [String],
             required: true,
         },
     }
