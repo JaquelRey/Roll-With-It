@@ -11,7 +11,18 @@ const typeDefs = gql`
     _id: ID
     group: String
     kind: String
-    iteminfo: [ItemInfo]
+    iteminfo: ItemInfo
+  }
+
+  type ItemInfo {
+    _id: ID
+    name: String
+    url: String
+    desc: String
+    special: String
+    cost: 
+    weight: Number
+    stats: ItemStats
   }
   
   type Traits {
