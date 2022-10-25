@@ -10,10 +10,24 @@ const typeDefs = gql`
     class: String
     background: String
     languages: [Language]
-    proficiences: [Proficiency]]
+    proficiences: [Proficiency]
     feats: [Feat]
   }
-  
+
+  type Language {
+    _id: ID
+    language: String
+  }
+
+  type Proficiency {
+    _id: ID
+    proficiency: String
+  }
+
+  type Feat {
+    _id: ID
+    feat: String
+  }
 
   type Character {
     _id: ID
