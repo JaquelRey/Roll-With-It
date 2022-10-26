@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 const languageSchema = require('./Language');
-const proficiencySchema = require('./Proficency');
+const proficiencySchema = require('./Proficiency');
 const featSchema = require('./Feat');
 
 const traitSchema = new Schema(
