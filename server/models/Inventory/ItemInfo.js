@@ -26,10 +26,10 @@ const infoSchema = new Schema(
         type: Number,
         required: true,
       },
-      stats: [{
+      stats: {
         type: Schema.Types.ObjectId,
         ref: 'ItemStats',
-      }],
+      },
     }
   );
 
