@@ -23,7 +23,6 @@ const Character = () => {
                     <CharacterAspects.Equipment />
                     <CharacterAspects.Inventory />
                 </div>
-
             </div>
 
 

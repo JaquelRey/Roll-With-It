@@ -11,7 +11,7 @@ const Profile = () => {
                 </UserCard>
             </div>
             <div>
-                {array.forEach(element => {
+                {array.forEach(character => {
                     <CharacterCard  key={character.id} />
                 })}
             </div>
