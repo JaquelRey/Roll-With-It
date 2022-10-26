@@ -20,14 +20,20 @@ const typeDefs = gql`
     url: String
     desc: String
     special: String
-    cost: 
+    cost: ItemCost
     weight: Number
     stats: ItemStats
   }
 
+  type ItemCost {
+    _id: ID
+    quantity: Number
+    unit: String
+  }
+
   type ItemStats {
     _id: ID
-    
+    any:
   }
   
   type Traits {
