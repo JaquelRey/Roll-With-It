@@ -1,25 +1,73 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-  type Category {
+
+  type Inventory {
     _id: ID
-    name: String
+    items: [InventoryItem]
   }
 
-  type Product {
+  type InventoryItem {
+    _id: ID
+    group: String
+    kind: String
+    iteminfo: ItemInfo
+  }
+
+  type ItemInfo {
+    _id: ID
+    name: String
+    url: String
+    desc: String
+    special: String
+    cost: ItemCost
+    weight: Number
+    stats: ItemStats
+  }
+
+  type ItemCost {
+    _id: ID
+    quantity: Number
+    unit: String
+  }
+
+  type ItemStats {
+    _id: ID
+    any:
+  }
+  
+  type Traits {
     _id: ID
     name: String
     description: String
-    image: String
-    quantity: Int
-    price: Float
-    category: Category
+    race: String
+    class: String
+    background: String
+    languages: [Language]
+    proficiences: [Proficiency]
+    feats: [Feat]
   }
 
-  type Order {
+  type Language {
     _id: ID
-    purchaseDate: String
-    products: [Product]
+    language: String
+  }
+
+  type Proficiency {
+    _id: ID
+    proficiency: String
+  }
+
+  type Feat {
+    _id: ID
+    feat: String
+  }
+
+  type Character {
+    _id: ID
+    traits: Traits
+    stats: Stats
+    inventory: Inventory
   }
 
   type User {
@@ -27,11 +75,7 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     email: String
-    orders: [Order]
-  }
-
-  type Checkout {
-    session: ID
+    characters: [Character]
   }
 
   type Auth {
@@ -40,12 +84,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    categories: [Category]
-    products(category: ID, name: String): [Product]
-    product(_id: ID!): Product
     user: User
-    order(_id: ID!): Order
-    checkout(products: [ID]!): Checkout
   }
 
   type Mutation {
