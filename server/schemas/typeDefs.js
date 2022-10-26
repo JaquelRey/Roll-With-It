@@ -33,11 +33,6 @@ const typeDefs = gql`
     unit: String
   }
 
-  type ItemStats {
-    _id: ID
-  
-  }
-
   type Skill {
     _id: ID
     skill: String
@@ -121,7 +116,7 @@ const typeDefs = gql`
     createCharacter(userId: ID!, traits: Traits!, stats: Stats!, inventory: Inventory!): Character
     createInventory(characterId: ID!, items: [InventoryItem]): Character
     createItem(group: String!, kind: String!, iteminfo: ItemInfo!): InventoryItem
-    addItemInfo(item: ID!, name: String!, url: String!, desc: String, special: String, cost: ItemCost!, weight: Number!, stats: ItemStats): InventoryItem
+    addItemInfo(item: ID!, name: String!, url: String!, desc: String, special: String, cost: ItemCost!, weight: Number!): InventoryItem
     addItemCost(item: ID!, quantity: Number!, unit: String!): ItemInfo
     addItemToInv(characterId: ID!, item: InventoryItem!): Inventory
     updateCharacter(_id: ID!, traits: Traits, stats: Stats, inventory: Inventory): Character

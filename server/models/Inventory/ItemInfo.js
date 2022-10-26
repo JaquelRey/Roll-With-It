@@ -25,11 +25,7 @@ const infoSchema = new Schema(
       weight: {
         type: Number,
         required: true,
-      },
-      stats: {
-        type: Schema.Types.ObjectId,
-        ref: 'ItemStats',
-      },
+      }
     }
   );
 
