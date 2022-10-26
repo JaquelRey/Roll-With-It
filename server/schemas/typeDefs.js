@@ -2,6 +2,8 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
 
+
+
   type Inventory {
     _id: ID
     items: [InventoryItem]
@@ -33,9 +35,28 @@ const typeDefs = gql`
 
   type ItemStats {
     _id: ID
-    any:
-  }
   
+  }
+
+  type Skill {
+    _id: ID
+    skill: String
+    proficient: Boolean
+  }
+
+  type Stats {
+    _id: ID
+    strength: String
+    dexterity: String
+    constitution: String
+    intelligence: String
+    wisdom: ItemCost
+    charisma: Number
+    hit_points: ItemStats
+    death_saves: Number
+    skills: [Skill]
+  }
+
   type Traits {
     _id: ID
     name: String
@@ -84,14 +105,27 @@ const typeDefs = gql`
   }
 
   type Query {
-    user: User
+    me: User
+    user(username: String!): User
+    users: [User]
+    character(characterId: ID!): Character
+    characters(username: String): [Character]
+    allcharacters: [Character]
+    inventory(characterId: ID!): [InventoryItem]
+    traits(characterId: ID!): Traits
+    stats(characterId: ID!): Stats
   }
 
   type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    addOrder(products: [ID]!): Order
+    createCharacter(userId: ID!, traits: Traits!, stats: Stats!, inventory: Inventory!): Character
+    createInventory(characterId: ID!, items: [InventoryItem]): Character
+    createItem(group: String!, kind: String!, iteminfo: ItemInfo!): InventoryItem
+    addItemInfo(item: ID!, name: String!, url: String!, desc: String, special: String, cost: ItemCost!, weight: Number!, stats: ItemStats): InventoryItem
+    addItemCost(item: ID!, quantity: Number!, unit: String!): ItemInfo
+    addItemToInv(characterId: ID!, item: InventoryItem!): Inventory
+    updateCharacter(_id: ID!, traits: Traits, stats: Stats, inventory: Inventory): Character
     updateUser(firstName: String, lastName: String, email: String, password: String): User
-    updateProduct(_id: ID!, quantity: Int!): Product
     login(email: String!, password: String!): Auth
   }
 `;
