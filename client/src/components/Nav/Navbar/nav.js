@@ -1,3 +1,5 @@
+import 'bulma/css/bulma.min.css';
+
 export default funciton Nav() {
     return (
 <nav className="nav">
