@@ -21,19 +21,13 @@ const typeDefs = gql`
     desc: String
     special: String
     cost: ItemCost
-    weight: Number
-    stats: ItemStats
+    weight: Float
   }
 
   type ItemCost {
     _id: ID
-    quantity: Number
+    quantity: Float
     unit: String
-  }
-
-  type ItemStats {
-    _id: ID
-    any:
   }
   
   type Traits {
@@ -47,6 +41,20 @@ const typeDefs = gql`
     proficiences: [Proficiency]
     feats: [Feat]
   }
+
+  type Stats {
+    _id: ID
+    strength: Float!
+    dexterity: Float!
+    constitution: Float!
+    intelligence: Float!
+    wisdome: Float!
+    charisma: Float!
+    hit_points: Float!
+    death_saves: Float!
+    skills: Float!
+  }
+
 
   type Language {
     _id: ID
@@ -89,9 +97,7 @@ const typeDefs = gql`
 
   type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    addOrder(products: [ID]!): Order
     updateUser(firstName: String, lastName: String, email: String, password: String): User
-    updateProduct(_id: ID!, quantity: Int!): Product
     login(email: String!, password: String!): Auth
   }
 `;

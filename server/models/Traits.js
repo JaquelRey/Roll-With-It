@@ -26,9 +26,18 @@ const traitSchema = new Schema(
             type: String,
             required: true,
         },
-        languages: [languageSchema],
-        proficiences: [proficiencySchema],
-        feats: [featSchema],
+        languages: {
+            type: Schema.Types.ObjectId,
+            ref: 'Language',
+          },
+        proficiences: {
+            type: Schema.Types.ObjectId,
+            ref: 'Proficiency',
+          },
+        feats: {
+            type: Schema.Types.ObjectId,
+            ref: 'Feat',
+          },
     }
   );
 
