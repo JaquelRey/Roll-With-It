@@ -35,7 +35,10 @@ const statSchema = new Schema(
         type: Number,
         required: true,
       },
-      skills: [skillSchema],
+      skills: {
+        type: Schema.Types.ObjectId,
+        ref: 'Skill',
+      },
     }
   );
 
