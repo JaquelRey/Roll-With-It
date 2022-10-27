@@ -101,11 +101,14 @@ const typeDefs = gql`
     user(username: String!): User
     users: [User]
     character(characterId: ID!): Character
-    characters(username: String): [Character]
-    allcharacters: [Character]
+    userCharacters(username: String): [Character]
     inventory(characterId: ID!): [InventoryItem]
     traits(characterId: ID!): Traits
+    languages(traitsId: ID!): [Language]
+    proficiencies(traitsId: ID!): [Proficiency]
+    feats(traitsId: ID!): [Feat]
     stats(characterId: ID!): Stats
+    skills(statsId: ID!): [Skill]
   }
   type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
