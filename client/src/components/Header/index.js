@@ -2,34 +2,28 @@ import React from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 import './header.css'
-import dice from '../../assets/dice.png';
+import dice from '../../assets/whitedice.png';
+import divider from '../../assets/test.png'
+import logo from '../../assets/RollWithIt.png'
 
 function Header() {
 
     function showNavigation() {
         if (Auth.loggedIn()) {
             return (
-                <ul className="flex-row">
-                    <li className="mx-1">
-                        <a href="/" onClick={() => Auth.logout()}>
-                            Logout
-                        </a>
-                    </li>
-                </ul>
+                <Link href="/" className="auth-button" onClick={() => Auth.logout()}>
+                    Logout
+                </Link>
             );
         } else {
             return (
                 <div class="navbar-end">
-                    <a className="navbar-item">
-                        <Link to="/signup">
-                            Signup
-                        </Link>
-                    </a>
-                    <a className="navbar-item">
-                        <Link to="/login">
-                            Login
-                        </Link>
-                    </a>
+                    <Link to="/signup" className="auth-button">
+                        Signup
+                    </Link>
+                    <Link to="/login" className="auth-button">
+                        Login
+                    </Link>
                 </div>
 
             );
@@ -37,44 +31,38 @@ function Header() {
     }
 
     return (
-        <header className="header">
+        <header className="main">
+            <div className="header">
             <div className="left">
-                <div class="navbar-brand">
-                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                    </a>
-                    <a class="navbar-item" href="">
-                        <img src={dice} />
-                    </a>
+                <Link to="/" class='home-bttn'>
 
-                    {/* WHERE LOGO WILL GO*/}
+                    <img src={logo} />
+                </Link>
 
 
-                    
-                </div>
             </div>
             <div className="middle">
-                <div id="navbarBasicExample" class="navbar-menu">
-                    <div class="navbar-start">
-                        <a class="navbar-item">
-                            Profile
-                        </a>
-
-                        <a class="navbar-item">
-                            Social
-                        </a>
-
-                        <a class="navbar-item">
-                            Browse
-                        </a>
-                    </div>
-                </div>
+                <img src={dice} width={50} />
             </div>
             <div className="right">
                 {showNavigation()}
             </div>
+            <div className="nav">
+                <Link class="nav-button">
+                    Profile
+                </Link>
+
+                <Link class="nav-button">
+                    Social
+                </Link>
+
+                <Link class="nav-button">
+                    Browse
+                </Link>
+            </div>
+            </div>
+            
+            <div className="divider"></div>
         </header>
     );
 }

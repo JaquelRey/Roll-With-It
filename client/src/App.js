@@ -40,9 +40,9 @@ function App() {
 		<ApolloProvider client={client}>
 			<Router>
 				<div className='screen'>
-					<AppProvider>
+					<AppProvider >
 						<Header />
-						<Routes>
+						<Routes className="siteBody">
 							<Route
 								path="/"
 								element={<Home />}
