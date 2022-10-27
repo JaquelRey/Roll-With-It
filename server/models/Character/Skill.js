@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 // Modifier is the stat (strength, dexterity, etc.)
-const skillSchema = new Schema(
+const skillsSchema = new Schema(
     {
         skill: {
             type: String,
@@ -14,6 +14,6 @@ const skillSchema = new Schema(
     }
   );
 
-const Skill = model('Skill', skillSchema);
+// const Skill = model('Skill', skillSchema);
 
-module.exports = Skill;
+module.exports = skillsSchema;

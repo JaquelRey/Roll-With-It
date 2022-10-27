@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const skillSchema = require('./Skill')
+const skillsSchema = require('./Skill');
 
 const statSchema = new Schema(
     {
@@ -35,10 +35,7 @@ const statSchema = new Schema(
         type: Number,
         required: true,
       },
-      skills: {
-        type: Schema.Types.ObjectId,
-        ref: 'Skill',
-      },
+      skills: [skillsSchema],
     }
   );
 
