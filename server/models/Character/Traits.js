@@ -41,6 +41,6 @@ const traitSchema = new Schema(
     }
   );
 
-const Traits = model('Traits', traitSchema);
+// const Traits = model('Traits', traitSchema);
 
-module.exports = Traits;
+module.exports = traitSchema;

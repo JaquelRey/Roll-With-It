@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const InventoryItem = require('./Inventory/InventoryItem');
+const InventoryItem = require('./InventoryItem');
 
 const inventorySchema = new Schema({
   items: {
@@ -8,6 +8,4 @@ const inventorySchema = new Schema({
   }
   });
 
-const Inventory = model('Inventory', inventorySchema);
-
-module.exports = Inventory;
+module.exports = inventorySchema;

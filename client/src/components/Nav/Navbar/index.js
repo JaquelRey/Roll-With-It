@@ -1,6 +1,6 @@
 import 'bulma/css/bulma.min.css';
 
-export default funciton Nav() {
+export default function Nav() {
     return (
 <nav className="nav">
     <a href="Home" className="site-name">Roll With It</a>

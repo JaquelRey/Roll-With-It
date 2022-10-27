@@ -39,7 +39,7 @@ function App() {
 	return (
 		<ApolloProvider client={client}>
 			<Router>
-				<div>
+				<div className='screen'>
 					<AppProvider>
 						<Header />
 						<Routes>
