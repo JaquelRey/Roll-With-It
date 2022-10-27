@@ -6,12 +6,10 @@ import DemoSheet from '../../assets/dndsheet.webp';
 
 const Home = () => {
 	return (
-		<div className="Home">
-			<div 
-			className="headerContainer"
-			 style={{backgroundImage: `url(${BannerImage })` }}
-			 
-			 >
+		<div id='home' className='siteBody'>
+
+			<div className='parchment'>
+				<div className='parchment-body'>
 				<h1>Just Roll with it</h1>
 				<p>"Lorem ipsum dolor sit amet, consectetur dipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 					Ut enim ad minim veniam,
@@ -21,6 +19,7 @@ const Home = () => {
 					 <div >
 					 <button> CREATE CHARACTER</button>
 					 </div>
+				</div>
 			</div>
 		
 			<div className="demo-sheet">

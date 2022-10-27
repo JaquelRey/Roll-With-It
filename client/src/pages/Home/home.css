@@ -1,15 +1,12 @@
-.home {
+#home {
     display: flex;
     justify-content:center ;
     align-items: left;
-    flex-direction: column;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-     
+    flex-direction: row;
+    flex-wrap: wrap;
     }
      
-    .demo-sheet{
+    #home .demo-sheet{
         display: flex;
     justify-content:end;
     align-items: right;

@@ -1,20 +1,103 @@
 .header {
     display: flex;
-    flex-direction: column;
-    background-color: var(--primary);
+    flex-direction: row;
     align-items: center;
     flex-wrap: wrap;
+    background-color: var(--primary);
 }
 
 .header .left {
+    align-items: center;
     flex:25%;
+    text-align: left;
+    
 }
 
 .header .middle {
-    flex:50%
+    display: flex;
+    flex:50%;
+    flex-direction: row;
+    justify-content: space-between;
+
 }
 
 .header .right {
     flex:25%;
-    
+    text-align: right;
+
 }
+
+.header .nav {
+    display: flex;
+    flex:100%;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.main .divider{
+    flex:100%;
+    height: 10px;
+    background-image: linear-gradient(var(--primary),#41414300) ;
+}
+
+.header .home-bttn {
+    display: flex;
+    text-align: left;
+}
+.header .home-bttn * {
+    height: 45px;
+}
+
+.header .nav-button{
+    background-image: url(../../assets/gold-name-plate.jpg);
+    background-size: cover;
+    background-position: center;
+    margin: 2px;
+    padding: 5px;
+    color: var(--primary);
+    border: 2px solid #814F1C;
+    border-radius: 10px;
+    width: 100px;
+    text-align: center;
+}
+
+
+.header .auth-button {
+    background-image: url(../../assets/silver-name-plate.png);
+    background-size: 100% 100%;
+    background-color: rgba(0, 0, 0, 0);
+    border-color: rgba(0, 0, 0, 0);
+    margin: 2px;
+    padding: 5px;
+    color: var(--primary);
+    border-radius: 5px;
+}
+
+.auth-button:hover {
+    box-shadow: 0rem 0rem .1rem .1rem rgba(255, 255, 255, 0.74);
+}
+
+.auth-button:hover {
+    box-shadow: 0rem 0rem .1rem .1rem rgba(255, 255, 255, 0.74);
+}
+
+@media (max-width: 768px) {
+    .header .middle {
+        flex:100%;
+        order:3;
+        text-align: center;
+    }
+    .header .left{
+        flex-grow: 1;
+        order: 1;
+    }
+    .header .right {
+        flex:content;
+        flex-grow: 0;
+        order: 2;
+    }
+  }
+
+
+

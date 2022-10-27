@@ -1,4 +1,8 @@
 :root {
+    --main-background: url(./assets/dnd.jpg);
+    --parchment: url(./assets/parchment.png);
+    --parchment-top: url(./assets/ScrollTop.png);
+    --parchment-bottom: url(./assets/ScrollBottom.png);
     --primary: #414143;
     --primary-dark:#161B16;
     --primary-dark-transparent: #161b1686;
@@ -9,11 +13,60 @@
     --secondary-dark: #31291E;
     --secondary-light:#69573c88;
     --secondary-text:#8b3939;
+
   }
+
+
+::-webkit-scrollbar {
+    display: none;
+  }
+
 
 .screen{
     display: flex;
     flex-direction: column;
     width: 100vw;
     height: 100vh;
+    background-image: var(--main-background);
+    background-size: cover;
+    background-position: center;
+}
+
+.siteBody{
+  display: flex;
+  flex-grow: 1;
+  margin: 35px;
+}
+
+
+.parchment {
+  display: flex;
+  flex-grow: 0;
+  flex-direction: column;
+}
+.parchment::before {
+  content: ".";
+  width: 100%;
+  height: 15%;
+  background-image: var(--parchment-top);
+  background-size: 100% 100%;
+  min-height: fit-content;
+  display: flex;
+}
+.parchment::after{
+  content: ".";
+  width: 100%;
+  height: 15%;
+  background-image: var(--parchment-bottom);
+  background-size: 100% 100%;
+  min-height: fit-content;
+  display: flex;
+}
+.parchment-body{
+  background-image: var(--parchment);
+  background-position: top left;
+  background-size: 100% 100%;
+  padding-left: 10%;
+  padding-right: 10%;
+
 }
