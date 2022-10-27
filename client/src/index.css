@@ -1,0 +1,19 @@
+:root {
+    --primary: #414143;
+    --primary-dark:#161B16;
+    --primary-dark-transparent: #161b1686;
+    --primary-light:#5A6851;
+    --primary-extralight:#87997b;
+    --primary-text:#E9E4E9;
+    --secondary: #69573c;
+    --secondary-dark: #31291E;
+    --secondary-light:#69573c88;
+    --secondary-text:#8b3939;
+  }
+
+.screen{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+}

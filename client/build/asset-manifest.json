@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ce306bbb.chunk.css",
+    "main.js": "/static/js/main.5fb861c6.chunk.js",
+    "main.js.map": "/static/js/main.5fb861c6.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.049ef65f.js",
+    "runtime-main.js.map": "/static/js/runtime-main.049ef65f.js.map",
+    "static/css/2.f4c5cc59.chunk.css": "/static/css/2.f4c5cc59.chunk.css",
+    "static/js/2.9f48346e.chunk.js": "/static/js/2.9f48346e.chunk.js",
+    "static/js/2.9f48346e.chunk.js.map": "/static/js/2.9f48346e.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.f4c5cc59.chunk.css.map": "/static/css/2.f4c5cc59.chunk.css.map",
+    "static/css/main.ce306bbb.chunk.css.map": "/static/css/main.ce306bbb.chunk.css.map",
+    "static/js/2.9f48346e.chunk.js.LICENSE.txt": "/static/js/2.9f48346e.chunk.js.LICENSE.txt",
+    "static/media/dnd.5a33f684.jpg": "/static/media/dnd.5a33f684.jpg",
+    "static/media/dndsheet.0a7b4862.webp": "/static/media/dndsheet.0a7b4862.webp"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.049ef65f.js",
+    "static/css/2.f4c5cc59.chunk.css",
+    "static/js/2.9f48346e.chunk.js",
+    "static/css/main.ce306bbb.chunk.css",
+    "static/js/main.5fb861c6.chunk.js"
+  ]
+}

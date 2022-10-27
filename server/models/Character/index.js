@@ -1,4 +1,7 @@
 const { Schema, model } = require('mongoose');
+const traitSchema = require('./Traits')
+const statSchema = require('./Stats');
+const inventorySchema = require('./Inventory');
 
 // Schema to create Character model (Traits, Stats, and Inventory models are all referenced schemas)
 const characterSchema = new Schema(
@@ -7,16 +10,13 @@ const characterSchema = new Schema(
         type: String,
       },
       traits: {
-        type: Schema.Types.ObjectId,
-        ref: 'Traits',
+        type: traitSchema
       },
       stats: {
-        type: Schema.Types.ObjectId,
-        ref: 'Stats',
+        type: statSchema
       },
       inventory: {
-        type: Schema.Types.ObjectId,
-        ref: 'Inventory',
+        type: inventorySchema
       },
     }
   );

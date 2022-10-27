@@ -1,7 +1,8 @@
 import React from "react";
-import Nav from './Nav';
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
+import './header.css'
+import dice from '../../assets/dice.png';
 
 function Header() {
 
@@ -18,34 +19,62 @@ function Header() {
             );
         } else {
             return (
-                <ul className="flex-row">
-                    <li className="mx-1">
+                <div class="navbar-end">
+                    <a className="navbar-item">
                         <Link to="/signup">
                             Signup
                         </Link>
-                    </li>
-                    <li className="mx-1">
+                    </a>
+                    <a className="navbar-item">
                         <Link to="/login">
                             Login
                         </Link>
-                    </li>
-                </ul>
+                    </a>
+                </div>
+
             );
         }
     }
 
     return (
-        <header>
-            <div className="flex-row px-1">
-                <h1>
-                    Sample Application
-                </h1>
+        <header className="header">
+            <div className="left">
+                <div class="navbar-brand">
+                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                    <a class="navbar-item" href="">
+                        <img src={dice} />
+                    </a>
 
-                <div>
-                    {showNavigation()}
+                    {/* WHERE LOGO WILL GO*/}
+
+
+                    
                 </div>
             </div>
-            <Nav />
+            <div className="middle">
+                <div id="navbarBasicExample" class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item">
+                            Profile
+                        </a>
+
+                        <a class="navbar-item">
+                            Social
+                        </a>
+
+                        <a class="navbar-item">
+                            Browse
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div className="right">
+                {showNavigation()}
+            </div>
         </header>
     );
 }

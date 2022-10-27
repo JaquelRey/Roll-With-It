@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import BannerImage from '../../assets/dnd.jpg';
 import DemoSheet from '../../assets/dndsheet.webp';
-import 'bulma/css/bulma.min.css';
 
 const Home = () => {
 	return (
@@ -19,10 +18,9 @@ const Home = () => {
 					 quis nostrud exercitation ullamco 
 					 laboris nisi ut aliquip ex ea 
 					 commodo consequat"</p>
-					 <link >
+					 <div >
 					 <button> CREATE CHARACTER</button>
-					 </link>
-
+					 </div>
 			</div>
 		
 			<div className="demo-sheet">

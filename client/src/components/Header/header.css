@@ -1,0 +1,20 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary);
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.header .left {
+    flex:25%;
+}
+
+.header .middle {
+    flex:50%
+}
+
+.header .right {
+    flex:25%;
+    
+}
