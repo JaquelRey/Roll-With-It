@@ -61,9 +61,9 @@ const resolvers = {
 				inventory: character.inventory
 			});
 			if (context.user) {
-				return await User.findByIdAndUpdate(
-					context.user._id.characters[arrpos],
-					newCharacter, { new: true }
+				return await User.findOneAndUpdate(
+					{ _id: context.user._id },
+					{ $addToSet: { characters: newCharacter } }
 				)
 			}
 			throw new AuthenticationError('You need to be logged in!')
@@ -74,10 +74,7 @@ const resolvers = {
 				  _id: characterId,
 				});
 		
-				await User.findOneAndUpdate(
-				  { _id: context.user._id },
-				  { $pull: { characters: deleteCharacter._id } }
-				);
+				await User.findOneAndUpdate(context.user._id, { $pull: { characters: deleteCharacter._id } });
 		
 				return deleteCharacter;
 			}
