@@ -1,8 +1,11 @@
 :root {
     --main-background: url(./assets/dnd.jpg);
-    --parchment: url(./assets/parchment.png);
-    --parchment-top: url(./assets/ScrollTop.png);
-    --parchment-bottom: url(./assets/ScrollBottom.png);
+    --parchment: url(./assets/parchment/parchment.png);
+    --parchment-horizontal: url(./assets/parchment/parchment-horizontal.png);
+    --parchment-top: url(./assets/parchment/ScrollTop.png);
+    --parchment-bottom: url(./assets/parchment/ScrollBottom.png);
+    --parchment-left: url(./assets/parchment/ScrollLeft.png);
+    --parchment-right: url(./assets/parchment/ScrollRight.png);
     --primary: #414143;
     --primary-dark:#161B16;
     --primary-dark-transparent: #161b1686;
@@ -35,8 +38,14 @@
 
 .parchment {
   padding-top: 11.3665%; 
-  padding-bottom: 10.4725%;;
+  padding-bottom: 10.4725%;
 }
+
+.parchment.horizontal{
+  padding-right: 11.3665%; 
+  padding-left: 10.4725%;
+}
+
 .parchment-body::before {
   content: "";
   position: absolute;
@@ -48,6 +57,7 @@
   background-image: var(--parchment-top);
   background-size: 100%;
 }
+
 .parchment-body::after{
   content: "";
   position: absolute;
@@ -59,13 +69,50 @@
   background-image: var(--parchment-bottom);
   background-size: 100%;
 }
+
+
+
 .parchment-body{
-  
   background-image: var(--parchment);
   background-position: top left;
   position: relative;
   background-size: 100% 100%;
-  padding-left: 10%;
-  padding-right: 10%;
-  width: auto;
+  padding: 0px 10% 0px 10%;
+  
+}
+
+
+
+.parchment-body-horizontal  {
+  background-image: var(--parchment-horizontal);
+  background-position: top left;
+  position:relative;
+  background-size: 100% 100%;
+  padding: 10% 0px 10% 5px;
+}
+
+.parchment.horizontal .parchment-body-horizontal::before {
+  content: "";
+  position: absolute;
+  background-image: var(--parchment-left);
+  background-repeat: no-repeat;
+  background-size:100% 100%;
+  margin-right: -1px;
+  height: 100%;
+  padding-left: 10.4725%;
+  top: 0;
+  right: 100%;
+}
+
+.parchment.horizontal .parchment-body-horizontal::after{
+  content: "";
+  position: absolute;
+  background-image: var(--parchment-right);
+  background-repeat: no-repeat;
+  background-size:100% 100%;
+  margin-left: -1px;
+  height: 100%;
+  padding-right: 11.3665%;
+  top: 0;
+  left: 100%;
 }

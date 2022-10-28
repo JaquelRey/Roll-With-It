@@ -1,17 +1,20 @@
 #home {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: left;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 #home .demo-sheet {
     display: flex;
+    flex: 50%;
     justify-content: end;
     align-items: right;
 }
 
 #home .parchment {
-    flex:content;
+    flex:50%;
     flex-grow: 0;
+
 }

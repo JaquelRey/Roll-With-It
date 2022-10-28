@@ -1,0 +1,13 @@
+#CharacterView {
+}
+
+#CharacterView .row {
+    display: flex;
+    flex-direction: row;
+}
+#CharacterView .col {
+    display: flex;
+    flex-direction: column;
+    flex:303%;
+}
+

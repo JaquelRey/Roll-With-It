@@ -12,7 +12,8 @@ import { AppProvider } from './utils/GlobalState';
 
 import Home from './pages/Home';
 import Login from './pages/Login';
-import Header from './components/Header'
+import CharacterViewEdit from './pages/CharacterViewEdit';
+import Header from './components/Header';
 import NoMatch from './pages/NoMatch';
 import Signup from './pages/Signup';
 import Footer from './components/Footer';
@@ -55,6 +56,10 @@ function App() {
 							<Route
 								path="/signup"
 								element={<Signup />}
+							/>
+							<Route 
+							path='/character'
+							element={<CharacterViewEdit />}
 							/>
 							<Route
 								path="*"
