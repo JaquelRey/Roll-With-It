@@ -7,6 +7,7 @@ const HitPoints = () => {
                 <div>
                     Hit Dice
                 </div>
+                <input class="input" type="text" id="hitDice" placeholder="Hit Dice"></input>
                 <div>
                     Temp
                 </div>

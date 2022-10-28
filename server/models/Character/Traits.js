@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
+const featSchema = require('./Feat');
 const languageSchema = require('./Language');
 const proficiencySchema = require('./Proficiency');
-const featSchema = require('./Feat');
 
 const traitSchema = new Schema(
     {
@@ -9,6 +9,11 @@ const traitSchema = new Schema(
             type: String,
             required: true,
             max_length: 50,
+        },
+        level: {
+            type: Number,
+            required: true,
+            default: 1
         },
         description: {
             type: String,
@@ -18,7 +23,7 @@ const traitSchema = new Schema(
             type: String,
             required: true,
         },
-        class: {
+        characterclass: {
             type: String,
             required: true,
         },
@@ -26,18 +31,9 @@ const traitSchema = new Schema(
             type: String,
             required: true,
         },
-        languages: {
-            type: Schema.Types.ObjectId,
-            ref: 'Language',
-          },
-        proficiences: {
-            type: Schema.Types.ObjectId,
-            ref: 'Proficiency',
-          },
-        feats: {
-            type: Schema.Types.ObjectId,
-            ref: 'Feat',
-          },
+        languages: [languageSchema],
+        proficiencies: [proficiencySchema],
+        feats: [featSchema],
     }
   );
 
