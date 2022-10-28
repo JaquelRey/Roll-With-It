@@ -12,11 +12,9 @@ const infoSchema = new Schema(
       },
       desc: {
         type: String,
-        required: true,
       },
       special: {
         type: String,
-        required: true,
       },
       cost: new Schema({  
         quantity: Number,
