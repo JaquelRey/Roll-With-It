@@ -83,6 +83,7 @@ const typeDefs = gql`
 
   type Traits {
     name: String
+    level: Int!
     description: String
     race: String
     characterclass: String
@@ -94,6 +95,7 @@ const typeDefs = gql`
 
   input TraitsInput {
     name: String
+    level: Int!
     description: String
     race: String
     characterclass: String
@@ -162,7 +164,11 @@ const typeDefs = gql`
   }
 
   type Query {
-    user: User
+    me: User
+    users: [User]
+    user(userId: ID!): User
+    characters(userId: ID!): [Character]
+    character(characterId: ID!): Character
   }
 
 

@@ -10,6 +10,11 @@ const traitSchema = new Schema(
             required: true,
             max_length: 50,
         },
+        level: {
+            type: Number,
+            required: true,
+            default: 1
+        },
         description: {
             type: String,
             required: true,
