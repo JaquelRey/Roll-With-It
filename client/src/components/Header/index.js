@@ -3,7 +3,6 @@ import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 import './header.css'
 import dice from '../../assets/whitedice.png';
-import divider from '../../assets/test.png'
 import logo from '../../assets/RollWithIt.png'
 
 function Header() {
@@ -33,36 +32,31 @@ function Header() {
     return (
         <header className="main">
             <div className="header">
-            <div className="left">
-                <Link to="/" class='home-bttn'>
+                <div className="left">
+                    <Link to="/" className='home-bttn'>
+                        <img id="Dice" src={dice} width={50} />
+                        <img id="Logo" src={logo} />
+                    </Link>
 
-                    <img src={logo} />
-                </Link>
 
+                </div>
+                <div className="middle">
+                    <Link className="nav-button">
+                        Profile
+                    </Link>
 
-            </div>
-            <div className="middle">
-                <img src={dice} width={50} />
-            </div>
-            <div className="right">
-                {showNavigation()}
-            </div>
-            <div className="nav">
-                <Link class="nav-button">
-                    Profile
-                </Link>
+                    <Link className="nav-button">
+                        Social
+                    </Link>
 
-                <Link class="nav-button">
-                    Social
-                </Link>
-
-                <Link class="nav-button">
-                    Browse
-                </Link>
+                    <Link className="nav-button">
+                        Browse
+                    </Link>
+                </div>
+                <div className="right">
+                    {showNavigation()}
+                </div>
             </div>
-            </div>
-            
-            <div className="divider"></div>
         </header>
     );
 }

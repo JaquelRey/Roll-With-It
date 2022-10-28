@@ -1,0 +1,24 @@
+/* || KEYFRAMES */
+
+
+
+footer {
+    position:sticky;
+    top:100vh;
+    z-index: 5;
+    background-image: linear-gradient(#1c3d0400 0%,#1C3D04 50%,#122703 60%,#020200) ; 
+
+}
+.main .grass {
+    background-image:url(../../assets/grass.png);
+    background-repeat: repeat;
+    background-size: contain;
+    padding-top: 40px;
+}
+
+
+
+
+
+
+

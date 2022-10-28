@@ -1,14 +1,17 @@
 #home {
     display: flex;
-    justify-content:center ;
-    align-items: left;
     flex-direction: row;
-    flex-wrap: wrap;
-    }
-     
-    #home .demo-sheet{
-        display: flex;
-    justify-content:end;
+    justify-content: center;
+    align-items: left;
+}
+
+#home .demo-sheet {
+    display: flex;
+    justify-content: end;
     align-items: right;
-    }
-    
+}
+
+#home .parchment {
+    flex:content;
+    flex-grow: 0;
+}
