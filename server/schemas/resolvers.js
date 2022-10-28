@@ -48,12 +48,12 @@ const resolvers = {
 			if (context.user) {
 				await User.findOneAndUpdate(
 					{ _id: context.user._id },
-					{ $addToSet: { characters: newCharacter._id } }
+					{ $addToSet: { characters: newCharacter } }
 				);
 			}
 			return newCharacter;
 		},
-		updateCharacter: async (parent, { url, character, characterId }, context) => {
+		updateCharacter: async (parent, { url, character, arrpos }, context) => {
 			const newCharacter = await Character.create({
 				image: url,
 				traits: character.traits,
@@ -62,7 +62,7 @@ const resolvers = {
 			});
 			if (context.user) {
 				return await User.findByIdAndUpdate(
-					context.user._id.characters.characterId,
+					context.user._id.characters[arrpos],
 					newCharacter, { new: true }
 				)
 			}

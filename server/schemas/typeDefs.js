@@ -179,7 +179,7 @@ const typeDefs = gql`
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
     createCharacter(image:String, character: CharacterInput!): Character
-    updateCharacter(image:String, character: CharacterInput!, characterId: ID!): Character
+    updateCharacter(image:String, character: CharacterInput!, arrpos: Int!): Character
     deleteCharacter(characterId: ID!): Character
   }
 `;

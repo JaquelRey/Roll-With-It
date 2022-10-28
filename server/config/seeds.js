@@ -1,5 +1,5 @@
 const db = require('./connection');
-const { User, Character } = require('../models');
+const { User } = require('../models');
 const charactersarray = [{
 	image: "https://i.imgur.com/irThUh1.png",
 	traits: {
