@@ -173,7 +173,6 @@ const typeDefs = gql`
     character(characterId: ID!): Character
   }
 
-
   type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
     updateUser(firstName: String, lastName: String, email: String, password: String): User
@@ -183,8 +182,5 @@ const typeDefs = gql`
     deleteCharacter(characterId: ID!): Character
   }
 `;
-
-
-
 
 module.exports = typeDefs;

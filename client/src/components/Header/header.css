@@ -1,39 +1,61 @@
+/* || KEYFRAMES */
+
+
+
+header.main {
+    position:sticky;
+    Top:0;
+    z-index: 5;
+}
+
 .header {
     display: flex;
     flex-direction: row;
     align-items: center;
     flex-wrap: wrap;
-    background-color: var(--primary);
+    background-image: linear-gradient(var(--primary) 0%,var(--primary) 70%,#00000000) ;
+    padding: 5px 5px 25px 5px;
 }
 
 .header .left {
     align-items: center;
-    flex:25%;
+    flex:content;
     text-align: left;
     
 }
 
 .header .middle {
     display: flex;
-    flex:50%;
+    flex:auto;
+    flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
 
 }
 
 .header .right {
-    flex:25%;
+    flex:content;
     text-align: right;
 
 }
-
+.header #Logo {
+    height: 25px;
+    align-self: center;
+}
 .header .nav {
     display: flex;
     flex:100%;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
 
 }
+
+@keyframes rotation {
+    from { transform:rotate(0deg); }
+    to   { transform:rotate(359deg); }
+ }
+
+
 
 .main .divider{
     flex:100%;
@@ -43,7 +65,7 @@
 
 .header .home-bttn {
     display: flex;
-    text-align: left;
+    text-align: center;
 }
 .header .home-bttn * {
     height: 45px;
@@ -54,7 +76,8 @@
     background-size: cover;
     background-position: center;
     margin: 2px;
-    padding: 5px;
+    padding: 0px;
+    line-height: 20px;
     color: var(--primary);
     border: 2px solid #814F1C;
     border-radius: 10px;
@@ -65,21 +88,32 @@
 
 .header .auth-button {
     background-image: url(../../assets/silver-name-plate.png);
-    background-size: 100% 100%;
-    background-color: rgba(0, 0, 0, 0);
-    border-color: rgba(0, 0, 0, 0);
+    background-size: cover;
+    background-position: center;
+    border: 1px solid black;
     margin: 2px;
     padding: 5px;
     color: var(--primary);
     border-radius: 5px;
 }
 
-.auth-button:hover {
-    box-shadow: 0rem 0rem .1rem .1rem rgba(255, 255, 255, 0.74);
+#Dice{
+    animation-play-state:running;
+    animation: rotation 3s infinite;
+    border-radius: 100%;
 }
 
 .auth-button:hover {
     box-shadow: 0rem 0rem .1rem .1rem rgba(255, 255, 255, 0.74);
+}
+
+.nav-button:hover {
+    box-shadow: 0rem 0rem .1rem .1rem #EDD589;
+}
+
+.home-bttn:hover #Dice {
+    animation-play-state:paused;
+    box-shadow: 0px 0rem 10px 5px rgba(255, 255, 255, 0.23);
 }
 
 @media (max-width: 768px) {
