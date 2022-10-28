@@ -11,10 +11,11 @@ const resolvers = {
 			return User.findOne({_id: userId }).populate('characters');
 		},
 		characters: async (parent, { userId }) => {
-			return User.find({_id: userId}).sort({ characters });
+			const user = await User.findOne({_id: userId }).populate('characters')
+			return Character.find()
 		},
-		character: async (parent, { userId, characterId }) => {
-			return User.findOne({_id: userId }).sort({ character: characterId });
+		character: async (parent, { characterId }) => {
+			return Character.findOne({_id: characterId })
 		},
 		me: async (parent, args, context) => {
 			if (context.user) {
@@ -37,8 +38,9 @@ const resolvers = {
 
 			throw new AuthenticationError('Not logged in');
 		},
-		createCharacter: async (parent, { character }, context) => {
+		createCharacter: async (parent, { url, character }, context) => {
 			const newCharacter = await Character.create({
+				image: url,
 				traits: character.traits,
 				stats: character.stats,
 				inventory: character.inventory
@@ -51,8 +53,9 @@ const resolvers = {
 			}
 			return newCharacter;
 		},
-		updateCharacter: async (parent, { character, characterId }, context) => {
+		updateCharacter: async (parent, { url, character, characterId }, context) => {
 			const newCharacter = await Character.create({
+				image: url,
 				traits: character.traits,
 				stats: character.stats,
 				inventory: character.inventory
@@ -65,10 +68,18 @@ const resolvers = {
 			}
 			throw new AuthenticationError('You need to be logged in!')
 		},
-		deleteCharacter: async (parent, characterId, context) => {
+		deleteCharacter: async (parent, { characterId }, context) => {
 			if (context.user) {
-				return await User.findByIdAndDelete(
-					context.user._id.characters.characterId)
+				const deleteCharacter = await Character.findOneAndDelete({
+				  _id: characterId,
+				});
+		
+				await User.findOneAndUpdate(
+				  { _id: context.user._id },
+				  { $pull: { characters: deleteCharacter._id } }
+				);
+		
+				return deleteCharacter;
 			}
 			throw new AuthenticationError('You need to be logged in!');
 		},
