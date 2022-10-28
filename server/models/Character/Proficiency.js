@@ -10,6 +10,6 @@ const proficiencySchema = new Schema(
     }
   );
 
-const Proficiency = model('Proficiency', proficiencySchema);
+// const Proficiency = model('Proficiency', proficiencySchema);
 
-module.exports = Proficiency;
+module.exports = proficiencySchema;

@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
+const { User, Character } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -27,6 +27,40 @@ const resolvers = {
 			}
 
 			throw new AuthenticationError('Not logged in');
+		},
+		createCharacter: async (parent, { character }, context) => {
+			const newCharacter = await Character.create({
+				traits: character.traits,
+				stats: character.stats,
+				inventory: character.inventory
+			});
+			if (context.user) {
+				await User.findOneAndUpdate(
+					{ _id: context.user._id },
+					{ $addToSet: { characters: newCharacter._id } }
+				);
+			}
+			return newCharacter;
+		},
+		updateCharacter: async (parent, { character, characterId }, context) => {
+			const newCharacter = await Character.create({
+				traits: character.traits,
+				stats: character.stats,
+				inventory: character.inventory
+			});
+			if (context.user) {
+				return await User.findByIdAndUpdate(
+					context.user._id.characters.characterId,
+					newCharacter, { new: true }
+					)
+			}
+		},
+		deleteCharacter: async (parent, characterId, context) => {
+			if (context.user) {
+				return await User.findByIdAndDelete(
+					context.user._id.characters.characterId)
+			}
+			throw new AuthenticationError('You need to be logged in!');
 		},
 		login: async (parent, { email, password }) => {
 			const user = await User.findOne({ email });
