@@ -12,13 +12,11 @@ const infoSchema = new Schema(
       },
       desc: {
         type: String,
-        required: true,
       },
       special: {
         type: String,
-        required: true,
       },
-      cost: new mongoose.Schema({  
+      cost: new Schema({  
         quantity: Number,
         unit: String
       }),
@@ -33,6 +31,6 @@ const infoSchema = new Schema(
     }
   );
 
-const ItemInfo = model('ItemInfo', infoSchema);
+// const ItemInfo = model('ItemInfo', infoSchema);
 
-module.exports = ItemInfo;
+module.exports = infoSchema;

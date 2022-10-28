@@ -9,6 +9,6 @@ const featSchema = new Schema(
     }
   );
 
-const Feat = model('Feat', featSchema);
+// const Feat = model('Feat', featSchema);
 
-module.exports = Feat;
+module.exports = featSchema;

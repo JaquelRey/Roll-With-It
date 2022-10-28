@@ -9,6 +9,6 @@ const languageSchema = new Schema(
     }
   );
 
-const Language = model('Language', languageSchema);
+// const Language = model('Language', languageSchema);
 
-module.exports = Language;
+module.exports = languageSchema;

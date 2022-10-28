@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const infoSchema = require('./ItemInfo');
 // Schema to create InventoryItem model, info is a referenced schema
 const itemSchema = new Schema(
     {
@@ -6,17 +7,14 @@ const itemSchema = new Schema(
         type: String,
         required: true,
       },
-      kind: {
+      category: {
         type: String,
         required: true,
       },
-      info: {
-        type: Schema.Types.ObjectId,
-        ref: 'ItemInfo',
-      },
+      info: infoSchema,
     }
   );
 
-const InventoryItem = model('InventoryItem', itemSchema);
+// const InventoryItem = model('InventoryItem', itemSchema);
 
-module.exports = InventoryItem;
+module.exports = itemSchema;
