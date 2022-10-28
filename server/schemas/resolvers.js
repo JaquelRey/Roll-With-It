@@ -12,7 +12,7 @@ const resolvers = {
 		},
 		characters: async (parent, { userId }) => {
 			const user = await User.findOne({_id: userId }).populate('characters')
-			return Character.find()
+			return user.characters
 		},
 		character: async (parent, { characterId }) => {
 			return Character.findOne({_id: characterId })
