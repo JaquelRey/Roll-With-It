@@ -4,15 +4,24 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
 	Query: {
-		user: async (parent, args, context) => {
+		users: async () => {
+			return User.find().populate('characters');
+		},
+		user: async (parent, { userId }) => {
+			return User.findOne({_id: userId }).populate('characters');
+		},
+		characters: async (parent, { userId }) => {
+			return User.find({_id: userId}).sort({ characters });
+		},
+		character: async (parent, { userId, characterId }) => {
+			return User.findOne({_id: userId }).sort({ character: characterId });
+		},
+		me: async (parent, args, context) => {
 			if (context.user) {
-				const user = await User.findById(context.user._id);
-
-				return user;
+				return User.findOne({ _id: context.user._id }).populate('characters');
 			}
-
-			throw new AuthenticationError('Not logged in');
-		}
+			throw new AuthenticationError('You need to be logged in!');
+		},
 	},
 	Mutation: {
 		addUser: async (parent, args) => {
@@ -52,8 +61,9 @@ const resolvers = {
 				return await User.findByIdAndUpdate(
 					context.user._id.characters.characterId,
 					newCharacter, { new: true }
-					)
+				)
 			}
+			throw new AuthenticationError('You need to be logged in!')
 		},
 		deleteCharacter: async (parent, characterId, context) => {
 			if (context.user) {
