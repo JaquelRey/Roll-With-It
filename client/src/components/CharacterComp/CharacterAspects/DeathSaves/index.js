@@ -1,6 +1,6 @@
 import React from "react";
 
-const CharSavingThrows = () => {
+const DeathSaves = () => {
     return (
         <div className="container">
             <div>
