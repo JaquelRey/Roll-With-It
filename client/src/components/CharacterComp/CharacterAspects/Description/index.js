@@ -1,6 +1,7 @@
 import React from "react";
 
-const CharDescription = () => {
+const CharDescription = ({name, charName}) => {
+    const userName = name[0];
     return (
         <div className="container">
             <div>
@@ -9,9 +10,9 @@ const CharDescription = () => {
                 </div>
                 <div>
                     <div>
-                        Character Name
+                        Character Name - {userName}
                     </div>
-                    <input class="input" type="text" id="charName" placeholder="Character Name"></input>
+                    <input class="input" type="text" id="charName" placeholder={charName}></input>
                     <div>
                         Level:
                     </div>
