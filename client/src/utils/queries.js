@@ -6,7 +6,7 @@ export const QUERY_CLASS= gql`
     classes {
       name
       hit_die
-      profficiencies {
+      proficiencies {
         name        
         }
         saving_throws {
@@ -61,8 +61,35 @@ export const QUERY_CLASS= gql`
   {
     alignments {
       name
-      desc
     }
   }
 `;
-
+// Query to get the options needed to start character build
+//  ARGS
+// {
+//   "order": {
+//     "by": "NAME"
+//   },
+//   "languagesOrder2": {
+//     "by": "NAME"
+//   }
+// }
+export const QUERY_START = gql`
+  query ($languagesOrder2: LanguageOrder) {
+    races {
+      name
+    }
+    classes {
+      name
+    }
+    backgrounds {
+      name
+    }
+    languages(order: $languagesOrder2) {
+      name
+    }
+    feats {
+      name
+    }
+  }
+`;
