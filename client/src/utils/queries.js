@@ -116,3 +116,32 @@ export const QUERY_SKILLS = gql`
     }
   }
 `;
+
+
+// Query to get the options for proficiency
+//------
+//  ARGS
+// {
+//   "type": [
+//     "WEAPONS",
+//     "ARTISANS_TOOLS",
+//     "ARMOR",
+//     "MUSICAL_INSTRUMENTS",
+//     "OTHER",
+//     "GAMING_SETS",
+//     "VEHICLES"
+//   ],
+//   "order": {
+//     "by": "TYPE"
+//   }
+// }
+//-----
+// RETURNS:
+// Proficiency name
+export const QUERY_PROFICIENCIES = gql`
+  query Proficiencies($type: ProficiencyTypeFilter, $order: ProficiencyOrder) {
+    proficiencies(type: $type, order: $order) {
+      name
+    }
+  }
+`;
