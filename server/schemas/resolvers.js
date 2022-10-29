@@ -38,9 +38,9 @@ const resolvers = {
 
 			throw new AuthenticationError('Not logged in');
 		},
-		createCharacter: async (parent, { url, character }, context) => {
+		createCharacter: async (parent, {character }, context) => {
 			const newCharacter = await Character.create({
-				image: url,
+				image: character.image,
 				traits: character.traits,
 				stats: character.stats,
 				inventory: character.inventory
@@ -53,30 +53,43 @@ const resolvers = {
 			}
 			return newCharacter;
 		},
-		updateCharacter: async (parent, { url, character, arrpos }, context) => {
-			const newCharacter = await Character.create({
-				image: url,
-				traits: character.traits,
-				stats: character.stats,
-				inventory: character.inventory
-			});
-			if (context.user) {
-				return await User.findOneAndUpdate(
-					{ _id: context.user._id },
-					{ $addToSet: { characters: newCharacter } }
-				)
-			}
-			throw new AuthenticationError('You need to be logged in!')
-		},
+		// updateCharacter: async (parent, { character, characterId, userId }) => {
+		// 	// if (context.user) {
+		// 	 let res =  await User.findByIdAndUpdate({
+		// 		_id: userId,
+		// 	  },
+		// 	  {
+		// 		$set: {
+		// 		  "character.image": character.image,
+		// 		  "character.traits": character.traits,
+		// 		  "character.stats": character.stats,
+		// 		  "character.inventory": character.inventory,
+		// 		}
+		// 	  },
+		// 	  {
+		// 		arrayFilters: [
+		// 		  {
+		// 			"characters.$.id": characterId
+		// 		  }
+		// 		]
+		// 	  })
+
+		// 	  console.log(res)
+		// 	  return res
+		// 	// }
+		// 	// throw new AuthenticationError('You need to be logged in!')
+		// },
 		deleteCharacter: async (parent, { characterId }, context) => {
 			if (context.user) {
-				const deleteCharacter = await Character.findOneAndDelete({
-				  _id: characterId,
-				});
+				return  User.findOneAndUpdate({ _id: context.user._id },
+					{
+						$pull: {
+							characters: { _id: characterId }
+						}
+					},
+					{ safe: true }
+				);
 		
-				await User.findOneAndUpdate(context.user._id, { $pull: { characters: deleteCharacter._id } });
-		
-				return deleteCharacter;
 			}
 			throw new AuthenticationError('You need to be logged in!');
 		},

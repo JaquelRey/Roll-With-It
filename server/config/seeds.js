@@ -62,7 +62,7 @@ const charactersarray = [{
 	traits: {
 		name : "marris brightfeather",
 		 level :  1,
-		description : "best boi",
+		description : "best bird boi",
 		race : "birdman",
 		characterclass : "ranger",
 		background : "last of his kin",
