@@ -5,6 +5,12 @@ export const QUERY_USERS = gql`
   query Users {
     users {
       firstName
+      characters {
+        _id
+        traits {
+          name
+        }
+      }
     }
   }
 `;

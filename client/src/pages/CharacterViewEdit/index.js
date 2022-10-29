@@ -8,8 +8,14 @@ import { QUERY_USERS } from '../../utils/queries';
 const CharacterViewEdit = () => {
     const { loading, data } = useQuery(QUERY_USERS);
     const users = data?.users || [];
-    const user = users[0];
-    console.log(user);
+    const userName = users.map((user) => (
+        user.firstName
+    ))
+    const charName = users.map((user) => (
+        user.characters.map((character) => (
+            character.traits.name
+        ))
+    ))
 
     return (
         <div id="CharacterView" className="main">
@@ -19,8 +25,9 @@ const CharacterViewEdit = () => {
                         <div>Loading...</div>
                     ) : (
                         <div class="row">
+
                             <div class="col">
-                                <characterAspects.CharStats/>
+                                <characterAspects.CharStats />
                                 <characterAspects.CharSkills />
                             </div>
                             <div class="col">
@@ -30,9 +37,9 @@ const CharacterViewEdit = () => {
                                 <characterAspects.CharSenses />
                             </div>
                             <div class="col">
-                                <characterAspects.CharDescription />
+                                <characterAspects.CharDescription name={userName} charName={charName}/>
                                 <div>
-                                    <characterAspects.CharFeaturesTraits />
+                                    <characterAspects.CharFeaturesTraits/>
                                     <characterAspects.CharSpellsAttacks />
                                     <characterAspects.CharEquipment />
                                     <characterAspects.CharInventory />
