@@ -146,6 +146,7 @@ const typeDefs = gql`
   }
 
   input CharacterInput {
+    _id: ID
     image: String
     traits: TraitsInput
     stats: StatsInput
@@ -177,9 +178,9 @@ const typeDefs = gql`
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
-    createCharacter(image:String, character: CharacterInput!): Character
-    updateCharacter(image:String, character: CharacterInput!, characterId: ID!): Character
-    deleteCharacter(characterId: ID!): Character
+    createCharacter(character: CharacterInput!): Character
+    updateCharacter(character: CharacterInput!, characterId: ID!, userId: ID!): User
+    deleteCharacter(characterId: ID!): User
   }
 `;
 

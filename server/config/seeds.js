@@ -1,5 +1,5 @@
 const db = require('./connection');
-const { User, Character } = require('../models');
+const { User } = require('../models');
 const charactersarray = [{
 	image: "https://i.imgur.com/irThUh1.png",
 	traits: {
@@ -62,7 +62,7 @@ const charactersarray = [{
 	traits: {
 		name : "marris brightfeather",
 		 level :  1,
-		description : "best boi",
+		description : "best bird boi",
 		race : "birdman",
 		characterclass : "ranger",
 		background : "last of his kin",

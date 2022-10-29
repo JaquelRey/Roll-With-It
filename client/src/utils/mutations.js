@@ -32,11 +32,78 @@ export const ADD_USER = gql`
   }
 `;
 
-export const CREATE_CHARACTER = gql `
-mutation Mutation($character: CharacterInput!) {
-  createCharacter(character: $character) {
+export const UPDATE_USER = gql `
+  mutation updateUser {
+  _id
+  firstName
+  lastName
+  email
+  characters {
+    _id
+    image
     traits {
       name
+      level
+      description
+      race
+      characterclass
+      background
+      languages {
+        _id
+        language
+      }
+      proficiencies {
+        _id
+        proficiency
+      }
+      feats {
+        _id
+        feat
+      }
+    }
+    stats {
+      strength
+      dexterity
+      constitution
+      intelligence
+      wisdom
+      charisma
+      hit_points
+      death_saves
+      skills {
+        _id
+        skill
+        proficient
+      }
+    }
+    inventory {
+      items {
+        _id
+        group
+        category
+        iteminfo {
+          name
+          url
+          desc
+          special
+          cost {
+            quantity
+            unit
+          }
+          weight
+        }
+      }
+    }
+  }
+}`
+
+export const CREATE_CHARACTER = gql `
+mutation createCharacter($character: CharacterInput!) {
+  createCharacter(character: $character) {
+    image
+    traits {
+      name
+      level
       description
       race
       characterclass
@@ -73,6 +140,71 @@ mutation Mutation($character: CharacterInput!) {
         _id
         group
         kind
+        iteminfo {
+          name
+          url
+          desc
+          special
+          cost {
+            quantity
+            unit
+          }
+          weight
+        }
+      }
+    }
+  }
+}`
+
+export const DELETE_CHARACTER = gql `
+  mutation deleteCharacter(characterId: $characterId) {
+  _id
+  firstName
+  lastName
+  email
+  characters {
+    _id
+    image
+    traits {
+      name
+      level
+      description
+      race
+      characterclass
+      background
+      languages {
+        _id
+        language
+      }
+      proficiencies {
+        _id
+        proficiency
+      }
+      feats {
+        _id
+        feat
+      }
+    }
+    stats {
+      strength
+      dexterity
+      constitution
+      intelligence
+      wisdom
+      charisma
+      hit_points
+      death_saves
+      skills {
+        _id
+        skill
+        proficient
+      }
+    }
+    inventory {
+      items {
+        _id
+        group
+        category
         iteminfo {
           name
           url
