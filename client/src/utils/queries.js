@@ -350,7 +350,7 @@ query Query($userId: ID!) {
 }
 `;
 
-export const QUERY_USERS = gql`
+export const QUERY_ALL_USERS = gql`
 query Query {
   users {
     _id
