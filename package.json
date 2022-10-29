@@ -1,7 +1,10 @@
 {
-	"name": "mern-shopping",
+	"name": "roll-with-it",
 	"version": "1.0.0",
-	"description": "",
+	"engines": {
+		"node": "16.17.0"
+	  },
+	"description": "A dungeons and dragons fanmade character creator!",
 	"main": "server/server.js",
 	"scripts": {
 		"start": "node server/server.js",
