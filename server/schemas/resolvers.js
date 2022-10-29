@@ -8,14 +8,14 @@ const resolvers = {
 			return User.find();
 		},
 		user: async (parent, { userId }) => {
-			return User.findOne({_id: userId }).populate('characters');
+			return User.findOne({ _id: userId }).populate('characters');
 		},
 		characters: async (parent, { userId }) => {
-			const user = await User.findOne({_id: userId }).populate('characters')
+			const user = await User.findOne({ _id: userId }).populate('characters')
 			return user.characters
 		},
 		character: async (parent, { characterId }) => {
-			return Character.findOne({_id: characterId })
+			return Character.findOne({ _id: characterId })
 		},
 		me: async (parent, args, context) => {
 			if (context.user) {
@@ -38,7 +38,7 @@ const resolvers = {
 
 			throw new AuthenticationError('Not logged in');
 		},
-		createCharacter: async (parent, {character }, context) => {
+		createCharacter: async (parent, { character }, context) => {
 			const newCharacter = await Character.create({
 				image: character.image,
 				traits: character.traits,
@@ -53,35 +53,37 @@ const resolvers = {
 			}
 			return newCharacter;
 		},
-		// updateCharacter: async (parent, { character, characterId, userId }) => {
-		// 	// if (context.user) {
-		// 	 let res =  await User.findByIdAndUpdate({
-		// 		_id: userId,
-		// 	  },
-		// 	  {
-		// 		$set: {
-		// 		  "character.image": character.image,
-		// 		  "character.traits": character.traits,
-		// 		  "character.stats": character.stats,
-		// 		  "character.inventory": character.inventory,
-		// 		}
-		// 	  },
-		// 	  {
-		// 		arrayFilters: [
-		// 		  {
-		// 			"characters.$.id": characterId
-		// 		  }
-		// 		]
-		// 	  })
-
-		// 	  console.log(res)
-		// 	  return res
-		// 	// }
-		// 	// throw new AuthenticationError('You need to be logged in!')
-		// },
+		updateCharacter: async (parent, { character, characterId, userId }) => {
+			// if (context.user) {
+			console.log(characterId)
+			let res = await User.findOneAndUpdate({
+				_id: userId, characters: {$elemMatch: {_id: characterId}}
+			},
+				{
+					$set: {
+						"characters.$.image": character.image,
+						"characters.$.traits": character.traits,
+						"characters.$.stats": character.stats,
+						"characters.$.inventory": character.inventory,
+					}
+				},
+				{
+					arrayFilters: [
+						{
+							"characters._id": characterId
+						}
+					],
+					new: true,
+				})
+			console.log(character.traits)
+			console.log(res)
+			return res
+			// }
+			// throw new AuthenticationError('You need to be logged in!')
+		},
 		deleteCharacter: async (parent, { characterId }, context) => {
 			if (context.user) {
-				return  User.findOneAndUpdate({ _id: context.user._id },
+				return User.findOneAndUpdate({ _id: context.user._id },
 					{
 						$pull: {
 							characters: { _id: characterId }
@@ -89,7 +91,7 @@ const resolvers = {
 					},
 					{ safe: true }
 				);
-		
+
 			}
 			throw new AuthenticationError('You need to be logged in!');
 		},

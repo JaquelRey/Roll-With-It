@@ -6,7 +6,7 @@ const { Provider } = AppContext;
 
 const AppProvider = ({ value = [], ...props }) => {
 	const [state, dispatch] = useAppReducer({
-
+		
 	});
 
 	return <Provider value={[state, dispatch]} {...props} />;
