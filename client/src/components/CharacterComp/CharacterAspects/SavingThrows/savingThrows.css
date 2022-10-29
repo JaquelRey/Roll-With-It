@@ -1,0 +1,26 @@
+#saving {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: left;
+    text-align: center;
+    margin: 10px;
+}
+
+#saving .saving-throws {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: left;
+    text-align: center;
+    margin: 30px;
+}
+
+#saving .stats {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: left;
+    text-align: center;
+    
+}

@@ -1,29 +1,23 @@
 import React from "react";
+import './hitPoints.css';
 
 const HitPoints = () => {
     return (
-        <div className="container">
+        <div id='hitDice'>
             <div>
                 <div>
-                    Hit Dice
+                    <h4>Hit Dice</h4>
                 </div>
                 <input class="input" type="text" id="hitDice" placeholder="Hit Dice"></input>
                 <div>
-                    Temp
+                    <h4>Temporary Hit Points</h4>
+                    <input class="input" type="text" id="temp" placeholder="Temporary Hit Points"></input>
                 </div>
                 <div>
-                    <div>Max</div>
-                    <div>MaxValue</div>
-                </div>
-                <div>
-                    /
-                </div>
-                <div>
-                    <div>Current</div>
-                    <div>CurrentValue</div>
+                    <h4>Current Hit Points</h4>
+                    <input class="input" type="text" id="hitDice" placeholder="Current Hit Points"></input>
                 </div>
             </div>
-            <div>Hit Points Title</div>
         </div>
     );
 };
