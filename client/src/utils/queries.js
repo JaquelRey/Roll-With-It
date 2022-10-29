@@ -119,21 +119,21 @@ export const QUERY_SKILLS = gql`
 
 // Query to get the options for proficiency
 //------
-//  ARGS
-// {
-//   "type": [
-//     "WEAPONS",
-//     "ARTISANS_TOOLS",
-//     "ARMOR",
-//     "MUSICAL_INSTRUMENTS",
-//     "OTHER",
-//     "GAMING_SETS",
-//     "VEHICLES"
-//   ],
-//   "order": {
-//     "by": "TYPE"
-//   }
-// }
+export const ARGS_PROFICIENCIES = 
+{
+  "type": [
+    "WEAPONS",
+    "ARTISANS_TOOLS",
+    "ARMOR",
+    "MUSICAL_INSTRUMENTS",
+    "OTHER",
+    "GAMING_SETS",
+    "VEHICLES"
+  ],
+  "order": {
+    "by": "TYPE"
+  }
+}
 //-----
 // RETURNS:
 // Proficiency name
@@ -147,13 +147,13 @@ export const QUERY_PROFICIENCIES = gql`
 
 // Query to get the options for features
 //------
-//  ARGS
-// {
-//   "order": {
-//     "by": "NAME"
-//   },
-//  "level": 1
-// }
+export const ARGS_FEATURES = 
+{
+  "order": {
+    "by": "NAME"
+  },
+ "level": 1
+}
 //-----
 // RETURNS:
 // Feature name
@@ -167,15 +167,15 @@ export const QUERY_FEATURES = gql`
 
 // Query to get equipment
 //------
-//  ARGS
-// {
-//   "equipmentCategory": {
-//     "name": "Adventuring Gear"
-//     },
-//   "order": {
-//     "by": "NAME"
-//   }
-// }
+export const ARGS_EQUIPMENTS = 
+{
+  "equipmentCategory": {
+    "name": "Adventuring Gear"
+    },
+  "order": {
+    "by": "NAME"
+  }
+}
 //-------------------------
 // Adventuring Gear, Ammunition, Weapon, Armor, Tools, Mounts and Vehicles,
 // Kits, Shields, Gaming Sets, Equipment Packs, Other Tools, Artisan's Tools
@@ -198,5 +198,335 @@ query Equipments($name: String, $equipmentCategory: StringFilter, $order: Equipm
   }
 }
 `;
+
+export const QUERY_ME = gql`
+query Query {
+  me {
+    _id
+    firstName
+    lastName
+    email
+    characters {
+      _id
+      image
+      traits {
+        name
+        level
+        description
+        race
+        characterclass
+        background
+        languages {
+          _id
+          language
+        }
+        proficiencies {
+          _id
+          proficiency
+        }
+        feats {
+          _id
+          feat
+        }
+      }
+      stats {
+        strength
+        dexterity
+        constitution
+        intelligence
+        wisdom
+        charisma
+        hit_points
+        death_saves
+        skills {
+          _id
+          skill
+          proficient
+        }
+      }
+      inventory {
+        items {
+          _id
+          group
+          category
+          iteminfo {
+            name
+            url
+            desc
+            special
+            cost {
+              quantity
+              unit
+            }
+            weight
+          }
+        }
+      }
+    }
+  }
+}
+`;
+
+export const QUERY_USER = gql`
+query Query($userId: ID!) {
+  user(userId: $userId) {
+    _id
+    firstName
+    lastName
+    email
+    characters {
+      _id
+      image
+      traits {
+        name
+        level
+        description
+        race
+        characterclass
+        background
+        languages {
+          _id
+          language
+        }
+        proficiencies {
+          _id
+          proficiency
+        }
+        feats {
+          _id
+          feat
+        }
+      }
+      stats {
+        strength
+        dexterity
+        constitution
+        intelligence
+        wisdom
+        charisma
+        hit_points
+        death_saves
+        skills {
+          _id
+          skill
+          proficient
+        }
+      }
+      inventory {
+        items {
+          _id
+          group
+          category
+          iteminfo {
+            name
+            url
+            desc
+            special
+            cost {
+              quantity
+              unit
+            }
+            weight
+          }
+        }
+      }
+    }
+  }
+}
+`;
+
+export const QUERY_USERS = gql`
+query Query {
+  users {
+    _id
+    firstName
+    lastName
+    email
+    characters {
+      _id
+      image
+      traits {
+        name
+        level
+        description
+        race
+        characterclass
+        background
+        languages {
+          _id
+          language
+        }
+        proficiencies {
+          _id
+          proficiency
+        }
+        feats {
+          _id
+          feat
+        }
+      }
+      stats {
+        strength
+        dexterity
+        constitution
+        intelligence
+        wisdom
+        charisma
+        hit_points
+        death_saves
+        skills {
+          _id
+          skill
+          proficient
+        }
+      }
+      inventory {
+        items {
+          _id
+          group
+          category
+          iteminfo {
+            name
+            url
+            desc
+            special
+            cost {
+              quantity
+              unit
+            }
+            weight
+          }
+        }
+      }
+    }
+  }
+}
+`;
+
+export const QUERY_CHARACTERS = gql`
+query Query($userId: ID!) {
+  characters(userId: $userId) {
+    _id
+    image
+    traits {
+      name
+      level
+      description
+      race
+      characterclass
+      background
+      languages {
+        _id
+        language
+      }
+      proficiencies {
+        _id
+        proficiency
+      }
+      feats {
+        _id
+        feat
+      }
+    }
+    stats {
+      strength
+      dexterity
+      constitution
+      intelligence
+      wisdom
+      charisma
+      hit_points
+      death_saves
+      skills {
+        _id
+        skill
+        proficient
+      }
+    }
+    inventory {
+      items {
+        _id
+        group
+        category
+        iteminfo {
+          name
+          url
+          desc
+          special
+          cost {
+            quantity
+            unit
+          }
+          weight
+        }
+      }
+    }
+  }
+}
+`;
+
+
+export const QUERY_CHARACTER = gql`
+query Query($characterId: ID!) {
+  character(characterId: $characterId) {
+    _id
+    image
+    traits {
+      name
+      level
+      description
+      race
+      characterclass
+      background
+      languages {
+        _id
+        language
+      }
+      proficiencies {
+        _id
+        proficiency
+      }
+      feats {
+        _id
+        feat
+      }
+    }
+    stats {
+      strength
+      dexterity
+      constitution
+      intelligence
+      wisdom
+      charisma
+      hit_points
+      death_saves
+      skills {
+        _id
+        skill
+        proficient
+      }
+    }
+    inventory {
+      items {
+        _id
+        group
+        category
+        iteminfo {
+          name
+          url
+          desc
+          special
+          cost {
+            quantity
+            unit
+          }
+          weight
+        }
+      }
+    }
+  }
+}
+`;
+
 
 
