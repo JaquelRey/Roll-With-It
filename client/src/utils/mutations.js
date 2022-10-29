@@ -157,66 +157,69 @@ mutation createCharacter($character: CharacterInput!) {
 }`
 
 export const DELETE_CHARACTER = gql `
-  mutation deleteCharacter(characterId: $characterId) {
-  _id
-  firstName
-  lastName
-  email
-  characters {
-    _id
-    image
-    traits {
-      name
-      level
-      description
-      race
-      characterclass
-      background
-      languages {
+  mutation deleteCharacter($characterId: CharacterInput!) {
+    deleteCharacter(characterId: $characterId) {
+      _id
+      firstName
+      lastName
+      email
+      characters {
         _id
-        language
-      }
-      proficiencies {
-        _id
-        proficiency
-      }
-      feats {
-        _id
-        feat
-      }
-    }
-    stats {
-      strength
-      dexterity
-      constitution
-      intelligence
-      wisdom
-      charisma
-      hit_points
-      death_saves
-      skills {
-        _id
-        skill
-        proficient
-      }
-    }
-    inventory {
-      items {
-        _id
-        group
-        category
-        iteminfo {
+        image
+        traits {
           name
-          url
-          desc
-          special
-          cost {
-            quantity
-            unit
+          level
+          description
+          race
+          characterclass
+          background
+          languages {
+            _id
+            language
           }
-          weight
+          proficiencies {
+            _id
+            proficiency
+          }
+          feats {
+            _id
+            feat
+          }
+        }
+        stats {
+          strength
+          dexterity
+          constitution
+          intelligence
+          wisdom
+          charisma
+          hit_points
+          death_saves
+          skills {
+            _id
+            skill
+            proficient
+          }
+        }
+        inventory {
+          items {
+            _id
+            group
+            category
+            iteminfo {
+              name
+              url
+              desc
+              special
+              cost {
+                quantity
+                unit
+              }
+              weight
+            }
+          }
         }
       }
     }
-  }
+    
 }`
