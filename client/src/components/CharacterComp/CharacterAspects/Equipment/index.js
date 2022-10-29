@@ -1,17 +1,18 @@
 import React from "react";
+import './equipment.css';
 
 const CharEquipment = () => {
     return (
-        <div className="container">
-            <div>
-                <h5>Equipment</h5>
-                {/* equipment to be uploaded here */}
-            </div>
-            <div>
-                <h5>Gold Pieces</h5>
-                {/* Total gold/monies to be uploaded here */}
-            </div>
-        </div>
+        <div id="inventory">
+    <div>
+        <h5>Equipment</h5>
+        <input class="input" type="text" id="equipment" placeholder="Equipment"></input>
+    </div>
+    <div>
+        <h5>Gold Pieces</h5>
+        <input class="input" type="text" id="gold-pieces" placeholder="Gold Pieces"></input>
+    </div>
+</div>
     );
 };
 

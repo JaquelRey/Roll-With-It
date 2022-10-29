@@ -1,18 +1,22 @@
 import React from "react";
+import './skills.css';
+
 const CharSkills = () => {
     const skillList = ["Acrobatics", "Animal Handling", "Arcana", "Athletics", "Deception", "History", "Insight", "Intimidation", "Investigation", "Medicine", "Nature", "Perception", "Performance", "Persuasion", "Religion", "Sleight of Hand", "Stealth", "Survival"]
     return (
-        <div className="container">
+        <div id='skills'>
             <div>
                 <div>
                     <div>
-                        Skills
+                        <h3>Skills</h3>
                     </div>
                     <div>
-                        Prof.
+                        <h4>Proficiency</h4>
+                        <input class="input" type="text" placeholder="Proficiency"></input>
                     </div>
                     <div>
-                        Bonus
+                        <h4>Bonus</h4>
+                        <input class="input" type="text" placeholder="Bonus"></input>
                     </div>
                 </div>
                 {skillList.forEach(element => {
