@@ -28,22 +28,51 @@
 .screen{
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    height: 100vh;
     background-attachment:fixed;
     background-image: var(--main-background);
     background-size: cover;
     background-position: center;
+    overflow: hidden;
 }
+
 
 
 .parchment {
   padding-top: 11.3665%; 
   padding-bottom: 10.4725%;
+  height: 95%;
 }
 
 .parchment.horizontal{
+  padding-top: 0%; 
   padding-right: 11.3665%; 
   padding-left: 10.4725%;
+}
+
+.parchment-body{
+  background-image: var(--parchment);
+  background-position: top left;
+  position: relative;
+  background-size: 100% 100%;
+  padding: 0px 10% 0px 10%;
+  height: 100%;
+  
+}
+
+.parchment-body .main,
+.parchment-body-horizontal .main {
+  overflow: auto;
+  height: 100%;
+}
+
+.parchment-body-horizontal  {
+  background-image: var(--parchment-horizontal);
+  background-position: top left;
+  position:relative;
+  background-size: 100% 100%;
+  padding: 10% 0px 10% 5px;
+  height: 100%;
 }
 
 .parchment-body::before {
@@ -68,27 +97,6 @@
   padding-bottom: 10.4725%;
   background-image: var(--parchment-bottom);
   background-size: 100%;
-}
-
-
-
-.parchment-body{
-  background-image: var(--parchment);
-  background-position: top left;
-  position: relative;
-  background-size: 100% 100%;
-  padding: 0px 10% 0px 10%;
-  
-}
-
-
-
-.parchment-body-horizontal  {
-  background-image: var(--parchment-horizontal);
-  background-position: top left;
-  position:relative;
-  background-size: 100% 100%;
-  padding: 10% 0px 10% 5px;
 }
 
 .parchment.horizontal .parchment-body-horizontal::before {

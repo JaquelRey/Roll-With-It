@@ -44,7 +44,7 @@ function App() {
 				<div className='screen'>
 					<AppProvider >
 						<Header />
-						<Routes>
+						<Routes className='TEST'>
 							<Route
 								path="/"
 								element={<Home />}

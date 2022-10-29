@@ -157,25 +157,6 @@ mutation createCharacter($character: CharacterInput!) {
 }`
 
 export const DELETE_CHARACTER = gql `
-<<<<<<< HEAD
-  mutation deleteCharacter($character: CharacterInput!) {
-    deleteCharacter(character: $character) {
-  _id
-  firstName
-  lastName
-  email
-  characters {
-    _id
-    image
-    traits {
-      name
-      level
-      description
-      race
-      characterclass
-      background
-      languages {
-=======
   mutation deleteCharacter($characterId: CharacterInput!) {
     deleteCharacter(characterId: $characterId) {
       _id
@@ -183,7 +164,6 @@ export const DELETE_CHARACTER = gql `
       lastName
       email
       characters {
->>>>>>> a4a69a35e7e13716ccb144eb1f263e2033403168
         _id
         image
         traits {

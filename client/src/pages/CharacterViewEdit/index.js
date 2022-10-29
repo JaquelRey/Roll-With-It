@@ -18,7 +18,7 @@ const CharacterViewEdit = () => {
                     {loading ? (
                         <div>Loading...</div>
                     ) : (
-                        <div class="row">
+                        <div class="row main">
                             <div class="col">
                                 <characterAspects.CharStats/>
                                 <characterAspects.CharSkills />
