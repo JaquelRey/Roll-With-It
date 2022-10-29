@@ -88,9 +88,6 @@ export const QUERY_START = gql`
     languages(order: $languagesOrder2) {
       name
     }
-    feats {
-      name
-    }
   }
 `;
 
@@ -108,11 +105,13 @@ export const QUERY_START = gql`
 // description
 // ability type name (wisdom, strength, ect)
 export const QUERY_SKILLS = gql`
-  query skills(order: $order) {
-    name
-    desc
-    ability_score {
-      full_name
+  query ($order: SkillOrder) {
+    skills(order: $order) {
+      name
+      desc
+      ability_score {
+        full_name
+      }
     }
   }
 `;
@@ -145,3 +144,59 @@ export const QUERY_PROFICIENCIES = gql`
     }
   }
 `;
+
+// Query to get the options for features
+//------
+//  ARGS
+// {
+//   "order": {
+//     "by": "NAME"
+//   },
+//  "level": 1
+// }
+//-----
+// RETURNS:
+// Feature name
+export const QUERY_FEATURES = gql`
+  query Features($order: FeatureOrder, $level: IntFilter) {
+    features(order: $order, level: $level) {
+      name
+    }
+  }
+`;
+
+// Query to get equipment
+//------
+//  ARGS
+// {
+//   "equipmentCategory": {
+//     "name": "Adventuring Gear"
+//     },
+//   "order": {
+//     "by": "NAME"
+//   }
+// }
+//-------------------------
+// Adventuring Gear, Ammunition, Weapon, Armor, Tools, Mounts and Vehicles,
+// Kits, Shields, Gaming Sets, Equipment Packs, Other Tools, Artisan's Tools
+//------------------------
+// RETURNS:
+// Proficiency name
+export const QUERY_EQUIPMENTS = gql`
+query Equipments($name: String, $equipmentCategory: StringFilter, $order: EquipmentOrder) {
+  equipments(name: $name, equipment_category: $equipmentCategory, order: $order) {
+    name
+    cost {
+      quantity
+      unit
+    }
+    desc
+    equipment_category {
+      name
+    }
+    weight
+  }
+}
+`;
+
+
