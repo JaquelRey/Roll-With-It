@@ -1,17 +1,22 @@
-#stats {
+#death-saves {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: left;
     text-align: center;
+}
+
+#death-saves .saving-throws {
+    margin: 5px;
+    text-decoration: underline;
+}
+
+#death-saves .toggles {
+    display: flex;
+    justify-content: center;
     margin: 10px;
 }
 
-#stats-display {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: left;
-    text-align: center;
+#death-saves .toggles .control {
     margin: 10px;
 }
