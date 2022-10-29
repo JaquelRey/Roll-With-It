@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
+const {characterSchema} = require('./Character');
 
 const userSchema = new Schema({
 	firstName: {
@@ -25,7 +26,7 @@ const userSchema = new Schema({
 		minlength: 5
 	},
 	characters: [{
-        type: Schema.Types.ObjectId,
+        type: characterSchema,
         ref: 'Character',
       }]
 });

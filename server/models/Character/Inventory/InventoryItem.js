@@ -7,7 +7,7 @@ const itemSchema = new Schema(
         type: String,
         required: true,
       },
-      kind: {
+      category: {
         type: String,
         required: true,
       },

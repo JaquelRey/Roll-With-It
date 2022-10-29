@@ -5,13 +5,13 @@ const typeDefs = gql`
   type InventoryItem {
     _id: ID
     group: String
-    kind: String
+    category: String
     iteminfo: ItemInfo
   }
 
   input InventoryItemInput {
     group: String
-    kind: String
+    category: String
     iteminfo: ItemInfoInput
   }
 
@@ -139,12 +139,14 @@ const typeDefs = gql`
 
   type Character {
     _id: ID
+    image: String
     traits: Traits
     stats: Stats
     inventory: Inventory
   }
 
   input CharacterInput {
+    image: String
     traits: TraitsInput
     stats: StatsInput
     inventory: InventoryInput
@@ -171,13 +173,12 @@ const typeDefs = gql`
     character(characterId: ID!): Character
   }
 
-
   type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
-    createCharacter(character: CharacterInput!): Character
-    updateCharacter(character: CharacterInput!, characterId: ID!): Character
+    createCharacter(image:String, character: CharacterInput!): Character
+    updateCharacter(image:String, character: CharacterInput!, characterId: ID!): Character
     deleteCharacter(characterId: ID!): Character
   }
 `;
