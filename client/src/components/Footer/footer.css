@@ -3,8 +3,9 @@
 
 
 footer {
-    position:sticky;
-    top:100vh;
+    position:fixed;
+    width: 100%;
+    bottom:0;
     z-index: 5;
     background-image: linear-gradient(#1c3d0400 0%,#1C3D04 50%,#122703 60%,#020200) ; 
 

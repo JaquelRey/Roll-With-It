@@ -1,6 +1,11 @@
 #CharacterView {
+    flex-grow: yes;
+    max-height: 100%;
 }
-
+#CharacterView .parchment.horizontal{
+    padding-right: 11.3665%; 
+    padding-left: 10.4725%;
+  }
 #CharacterView .row {
     display: flex;
     flex-direction: row;
