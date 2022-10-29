@@ -146,7 +146,6 @@ const typeDefs = gql`
   }
 
   input CharacterInput {
-    _id: ID
     image: String
     traits: TraitsInput
     stats: StatsInput
