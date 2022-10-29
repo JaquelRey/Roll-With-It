@@ -1,27 +1,33 @@
 import React from "react";
-import UserCard from '../../components/User/UserCard';
-import CharacterAspects from '../../components/CharacterComp/CharacterAspects';
-
-const Character = () => {
+import characterAspects from '../../components/CharacterComp/CharacterAspects/index.jsx';
+import './character.css'
+const CharacterViewEdit = () => {
     return (
-        <div className="container">
-            <div>
-                <CharacterAspects.Stats />
-                <CharacterAspects.Skills />
-            </div>
-            <div>
-                <CharacterAspects.HitPoints />
-                <CharacterAspects.AdditionalStats />
-                <CharacterAspects.SavingThrows />
-                <CharacterAspects.Senses />
-            </div>
-            <div>
-                <CharacterAspects.Description />
-                <div>
-                    <CharacterAspects.FeaturesTraits />
-                    <CharacterAspects.SpellsAttacks />
-                    <CharacterAspects.Equipment />
-                    <CharacterAspects.Inventory />
+        <div id="CharacterView" className="main">
+            <div className="parchment horizontal">
+                <div className="parchment-body-horizontal">
+                    <div class="row">
+                        <div class="col">
+                            <characterAspects.CharStats />
+                            <characterAspects.CharSkills />
+                        </div>
+                        <div class="col">
+                            <characterAspects.CharHitPoints />
+                            <characterAspects.CharAdditionalStats />
+                            <characterAspects.CharSavingThrows />
+                            <characterAspects.CharSenses />
+                        </div>
+                        <div class="col">
+                            <characterAspects.CharDescription />
+                            <div>
+                                <characterAspects.CharFeaturesTraits />
+                                <characterAspects.CharSpellsAttacks />
+                                <characterAspects.CharEquipment />
+                                <characterAspects.CharInventory />
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
@@ -30,4 +36,4 @@ const Character = () => {
     );
 };
 
-export default Character;
+export default CharacterViewEdit;
