@@ -93,3 +93,26 @@ export const QUERY_START = gql`
     }
   }
 `;
+
+// Query to get the options for skill
+//------
+//  ARGS
+// {
+//   "order": {
+//     "by": "NAME"
+//   }
+// }
+//-----
+// RETURNS:
+// Skill name
+// description
+// ability type name (wisdom, strength, ect)
+export const QUERY_SKILLS = gql`
+  query skills(order: $order) {
+    name
+    desc
+    ability_score {
+      full_name
+    }
+  }
+`;
