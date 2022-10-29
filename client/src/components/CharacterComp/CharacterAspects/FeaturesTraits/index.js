@@ -1,11 +1,12 @@
 import React from "react";
+import './traits.css';
 
 const CharTraits = () => {
     const traitsList = ['Abrasive', 'Absent-minded', 'Brawler', 'Cautious', 'Detached', 'Dishonest', 'Distinctive', 'Easygoing', 'Farsighted', 'Focused', 'Hard of Hearing', 'Hardy', 'Illiterate', 'Inattentive', 'Musclebound', 'Nearsighted', 'Passionate', 'Plucky', 'Polite', 'Quick', 'Reckless', 'Relentless', 'Saddleborn', 'Skinny', 'Slippery', 'Slow', 'Specialized', 'Spellgifted', 'Stout', 'Suspicious', 'Torpid', 'Uncivilized', 'Roll Again Twice'];
     return (
-        <div className="container">
+        <div id="traits">
             <div>
-                <h4>Traits and Feats</h4>
+                <h3>Traits and Feats</h3>
 
                 <h5>Trait One</h5>
                 <div class='select'>

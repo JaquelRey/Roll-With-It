@@ -1,4 +1,4 @@
-#character-desc {
+#traits {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -7,10 +7,6 @@
     margin: 10px;
 }
 
-#character-desc .info {
-    margin: 10px;
-}
-
-#character-desc .written-description {
-    margin: 10px;
+#traits h4 {
+    text-decoration: underline;
 }

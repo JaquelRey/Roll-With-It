@@ -1,45 +1,54 @@
 import React from "react";
+import './deathSaves.css';
 
 const DeathSaves = () => {
     return (
-        <div className="container">
+        <div id="death-saves">
             <div>
-                <h5>Saving Throws</h5>
-            </div>
-            <div>
-                <h6>Successes</h6>
-                <div class='control'>
-                    <label class='radio'>
-                        <input type='radio' name='successes'/>
-                    </label>
+                <div class="saving-throws">
+                    <h5>Saving Throws</h5>
                 </div>
-                <div class='control'>
-                    <label class='radio'>
-                        <input type='radio' name='successes'/>
-                    </label>
-                </div>
-                <div class='control'>
-                    <label class='radio'>
-                        <input type='radio' name='successes'/>
-                    </label>
-                </div>
-            </div>
-            <div>
-                <h6>Failures</h6>
-                <div class='control'>
-                    <label class='radio'>
-                        <input type='radio' name='successes'/>
-                    </label>
-                </div>
-                <div class='control'>
-                    <label class='radio'>
-                        <input type='radio' name='successes'/>
-                    </label>
-                </div>
-                <div class='control'>
-                    <label class='radio'>
-                        <input type='radio' name='successes'/>
-                    </label>
+                <div class="throws">
+                    <div>
+                        <h6>Successes</h6>
+                        <div class="toggles">
+                            <div class="control">
+                                <label class="checkbox">
+                                <input type="checkbox"/>
+                            </label>
+                            </div>
+                            <div class='control'>
+                                <label class="checkbox">
+                                <input type="checkbox"/>
+                            </label>
+                            </div>
+                            <div class='control'>
+                                <label class="checkbox">
+                                <input type="checkbox"/>
+                            </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h6>Failures</h6>
+                        <div class="toggles">
+                            <div class='control'>
+                                <label class="checkbox">
+                                <input type="checkbox"/>
+                            </label>
+                            </div>
+                            <div class='control'>
+                                <label class="checkbox">
+                                <input type="checkbox"/>
+                            </label>
+                            </div>
+                            <div class='control'>
+                                <label class="checkbox">
+                                <input type="checkbox"/>
+                            </label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

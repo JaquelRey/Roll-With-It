@@ -1,5 +1,20 @@
 import { gql } from '@apollo/client';
 
+// Query to get all of my data (to display character)
+export const QUERY_USERS = gql`
+  query Users {
+    users {
+      firstName
+      characters {
+        _id
+        traits {
+          name
+        }
+      }
+    }
+  }
+`;
+
 // Query to get all basic class data
 export const QUERY_CLASS= gql`
   {
